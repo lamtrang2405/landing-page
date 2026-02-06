@@ -1065,16 +1065,64 @@ body::after {
 }
 
 /* === Responsive === */
+
+/* Extra small phones (iPhone SE, older models) */
 @media (max-width: 360px) {
     .app-container {
         padding: var(--space-lg) var(--space-sm);
     }
 
     .special-deal {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .category-tag {
+        padding: 8px 14px;
+        font-size: 0.8rem;
     }
 }
 
+/* iPhone 12/13/14/15 (390px) and iPhone X/XS/11 Pro (375px) */
+@media (min-width: 361px) and (max-width: 414px) {
+    .app-container {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .special-deal {
+        font-size: 1.9rem;
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* iPhone Plus/Max models (414px+) and small tablets */
+@media (min-width: 415px) and (max-width: 480px) {
+    .app-container {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .special-deal {
+        font-size: 2rem;
+    }
+}
+
+/* Tablets and larger screens */
 @media (min-width: 481px) {
     .app-container {
         padding: var(--space-xl) var(--space-lg);
@@ -1086,6 +1134,24 @@ body::after {
 
     .review-card {
         width: 80%;
+    }
+
+    .special-deal {
+        font-size: 2.4rem;
+    }
+}
+
+/* iPhone safe area support (notch/dynamic island) */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .app-container {
+        padding-top: calc(var(--space-xl) + env(safe-area-inset-top));
+        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+        padding-left: calc(var(--space-md) + env(safe-area-inset-left));
+        padding-right: calc(var(--space-md) + env(safe-area-inset-right));
+    }
+
+    .brand-name {
+        padding-top: calc(12px + env(safe-area-inset-top));
     }
 }
 
