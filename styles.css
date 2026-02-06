@@ -280,8 +280,10 @@ body::after {
 .app-container {
     max-width: 480px;
     margin: 0 auto;
-    padding: var(--space-xl) var(--space-md);
-    padding-bottom: 120px;
+    padding: 0 var(--space-md);
+    /* Removed top padding */
+    padding-bottom: 100px;
+    /* Reduced bottom padding */
 }
 
 /* === Hero Section === */
@@ -1144,14 +1146,15 @@ body::after {
 /* iPhone safe area support (notch/dynamic island) */
 @supports (padding-top: env(safe-area-inset-top)) {
     .app-container {
-        padding-top: calc(var(--space-xl) + env(safe-area-inset-top));
-        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+        padding-top: env(safe-area-inset-top);
+        /* Only safe area, no extra padding */
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
         padding-left: calc(var(--space-md) + env(safe-area-inset-left));
         padding-right: calc(var(--space-md) + env(safe-area-inset-right));
     }
 
     .brand-name {
-        padding-top: calc(12px + env(safe-area-inset-top));
+        padding-top: env(safe-area-inset-top);
     }
 }
 
