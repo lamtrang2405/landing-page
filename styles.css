@@ -1,0 +1,1227 @@
+/* ============================================
+   LUCIDFM - Landing Page Styles
+   Synchronized with Main App Vibe
+   Dark Premium with Flame/Coral Accents
+   ============================================ */
+
+/* === Design Tokens === */
+:root {
+    /* Colors - Matching LucidFM Main App */
+    --color-bg-dark: #0d0d0f;
+    --color-bg-primary: #121215;
+    --color-bg-secondary: #1a1a1f;
+    --color-bg-card: rgba(30, 25, 35, 0.7);
+    --color-bg-input: rgba(25, 20, 30, 0.9);
+
+    /* Flame/Coral Accent - Primary Brand Color */
+    --color-flame: #ff6b35;
+    --color-flame-light: #ff8855;
+    --color-coral: #ff7b5c;
+
+    /* Pink/Magenta Secondary */
+    --color-pink: #ff4d8d;
+    --color-pink-light: #ff6fa3;
+    --color-magenta: #e84393;
+
+    /* Gradients */
+    --gradient-flame: linear-gradient(135deg, #ff6b35 0%, #ff4d8d 100%);
+    --gradient-pink: linear-gradient(135deg, #ff4d8d 0%, #ff6fa3 100%);
+    --gradient-text: linear-gradient(135deg, #ff6fa3 0%, #ffffff 60%);
+    --gradient-text-pink: linear-gradient(135deg, #ff4d8d 0%, #ff8855 100%);
+    --gradient-bg: linear-gradient(180deg, #0d0d0f 0%, #1a1020 40%, #15101a 100%);
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-text-muted: rgba(255, 255, 255, 0.5);
+
+    --color-gold: #ffd700;
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-script: 'Pacifico', cursive;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+}
+
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* === Background === */
+.bg-gradient {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg,
+            #0a0510 0%,
+            #120818 20%,
+            #1a0a20 40%,
+            #150812 60%,
+            #0d0510 100%);
+    z-index: -2;
+    overflow: hidden;
+}
+
+/* Large atmospheric glow - top left pink orb */
+.bg-gradient::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -15%;
+    width: 70%;
+    height: 50%;
+    background: radial-gradient(ellipse at center,
+            rgba(255, 50, 150, 0.25) 0%,
+            rgba(200, 50, 130, 0.15) 25%,
+            rgba(150, 40, 100, 0.08) 50%,
+            transparent 70%);
+    filter: blur(40px);
+    animation: floatGlowPrimary 12s ease-in-out infinite;
+}
+
+/* Secondary glow - bottom right magenta orb */
+.bg-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: -20%;
+    width: 60%;
+    height: 45%;
+    background: radial-gradient(ellipse at center,
+            rgba(220, 60, 180, 0.2) 0%,
+            rgba(180, 50, 140, 0.12) 30%,
+            transparent 60%);
+    filter: blur(50px);
+    animation: floatGlowSecondary 15s ease-in-out infinite;
+}
+
+/* Extra floating orbs overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 20%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle,
+            rgba(255, 100, 180, 0.3) 0%,
+            rgba(255, 80, 150, 0.15) 30%,
+            transparent 60%);
+    filter: blur(30px);
+    z-index: -1;
+    animation: floatOrb1 18s ease-in-out infinite;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 60%;
+    left: 5%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle,
+            rgba(230, 80, 200, 0.25) 0%,
+            rgba(200, 60, 160, 0.1) 40%,
+            transparent 70%);
+    filter: blur(25px);
+    z-index: -1;
+    animation: floatOrb2 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes floatGlowPrimary {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translate(20px, 10px) scale(1.05);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(40px, -15px) scale(1.1);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translate(15px, 5px) scale(1.02);
+        opacity: 0.95;
+    }
+}
+
+@keyframes floatGlowSecondary {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+
+    33% {
+        transform: translate(-30px, -20px) scale(1.08);
+        opacity: 1;
+    }
+
+    66% {
+        transform: translate(-15px, 10px) scale(0.95);
+        opacity: 0.85;
+    }
+}
+
+@keyframes floatOrb1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(-30px, 40px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(20px, 80px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(-10px, 30px) scale(1.05);
+    }
+}
+
+@keyframes floatOrb2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(40px, -30px) scale(1.15);
+    }
+
+    66% {
+        transform: translate(-20px, -50px) scale(0.85);
+    }
+}
+
+/* Remove old animation */
+@keyframes floatGlow {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -20px);
+    }
+}
+
+/* === Close Button === */
+.close-btn {
+    position: fixed;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--color-text-primary);
+}
+
+/* === App Container === */
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    padding-bottom: 120px;
+}
+
+/* === Hero Section === */
+.hero-section {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.brand-name {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+
+    /* Sticky Header Styles */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Full Width Compenstation */
+    margin: 0 calc(-1 * var(--space-md)) var(--space-md) calc(-1 * var(--space-md));
+    padding: 12px var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.sale-badge {
+    margin-bottom: var(--space-md);
+}
+
+.sale-percent {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-flame);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: var(--space-xs);
+}
+
+.special-deal {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-style: italic;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+/* === Countdown Box === */
+.countdown-box {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.75rem 1.5rem;
+    background: var(--color-bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+}
+
+.countdown-label {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-flame);
+}
+
+.time-separator {
+    color: var(--color-text-muted);
+    margin: 0 2px;
+}
+
+/* === Hero Description === */
+.hero-description {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+/* === Pricing Section === */
+.pricing-section,
+.plan-section {
+    margin-bottom: var(--space-xl);
+}
+
+.pricing-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pricing-card.selected {
+    border-color: var(--color-flame);
+    background: rgba(255, 107, 53, 0.08);
+}
+
+.check-circle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-flame);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.check-circle svg {
+    width: 14px;
+    height: 14px;
+    color: white;
+}
+
+.plan-name {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.price-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.lifetime-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: var(--gradient-flame);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-flame);
+}
+
+/* === More Options Button === */
+.more-options-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.more-options-btn:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(40, 35, 50, 0.8);
+}
+
+.more-options-btn svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-muted);
+}
+
+/* === Section Titles === */
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: var(--space-md);
+}
+
+.gradient-text {
+    background: var(--gradient-text-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* === Circular Audio Cluster Benefits Section === */
+.benefits-section-artistic {
+    margin-bottom: var(--space-lg);
+    padding: 0;
+    /* Removed all padding */
+    overflow: hidden;
+}
+
+.audio-circles-cluster {
+    position: relative;
+    height: 280px;
+    /* Reduced height */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-circle-item {
+    position: absolute;
+    border-radius: 50%;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.circle-image-wrap {
+    position: relative;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.3), transparent);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Base sizing classes (Logical) */
+.circle-main {
+    width: 170px;
+    z-index: 15;
+}
+
+.circle-left,
+.circle-right {
+    width: 130px;
+    z-index: 10;
+}
+
+.circle-mid-top,
+.circle-mid-bottom {
+    width: 110px;
+    z-index: 8;
+}
+
+.circle-top-left,
+.circle-bottom-right {
+    width: 95px;
+    z-index: 6;
+}
+
+
+/* Apply sizes to images */
+.circle-main .circle-image {
+    width: 162px;
+    height: 162px;
+}
+
+.circle-left .circle-image,
+.circle-right .circle-image {
+    width: 122px;
+    height: 122px;
+}
+
+.circle-mid-top .circle-image,
+.circle-mid-bottom .circle-image {
+    width: 102px;
+    height: 102px;
+}
+
+.circle-top-left .circle-image,
+.circle-bottom-right .circle-image {
+    width: 87px;
+    height: 87px;
+}
+
+
+
+
+
+/* Positioning the 7 Interactive Circles - TIGHTER SPACING, NO ANIMATION */
+.circle-main {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-left {
+    top: 40%;
+    left: 28%;
+}
+
+.circle-right {
+    bottom: 35%;
+    right: 28%;
+}
+
+.circle-mid-top {
+    top: 25%;
+    left: 48%;
+}
+
+.circle-mid-bottom {
+    bottom: 25%;
+    right: 45%;
+}
+
+.circle-top-left {
+    top: 28%;
+    left: 35%;
+}
+
+.circle-bottom-right {
+    bottom: 28%;
+    right: 32%;
+}
+
+
+
+/* Badge and Meta */
+.circle-badge {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 20, 35, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.circle-badge i {
+    color: var(--color-flame);
+    font-size: 0.65rem;
+}
+
+.circle-info {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.circle-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.circle-main .circle-name {
+    font-size: 0.95rem;
+    color: white;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.audio-circle-item:hover {
+    transform: scale(1.1) translateY(-10px) !important;
+    z-index: 30;
+
+}
+
+
+
+/* === Categories Section === */
+.categories-section {
+    margin-bottom: var(--space-xl);
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.category-tag {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-tag:hover {
+    border-color: var(--color-flame);
+    color: var(--color-text-primary);
+}
+
+.category-tag.highlight {
+    border-color: var(--color-flame);
+    color: var(--color-flame);
+}
+
+/* === Stories Section - Horizontal Triptych Layout === */
+.stories-section {
+    margin-bottom: var(--space-xl);
+}
+
+.stories-grid.triptych {
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically for horizontal slices */
+    gap: 8px;
+}
+
+.story-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    /* Image on left or full width? User said horizontal bars. */
+    align-items: center;
+}
+
+.story-card:hover {
+    border-color: var(--color-flame);
+    transform: translateX(5px);
+}
+
+.story-triptych {
+    width: 200px;
+    /* Vertical width for the segment */
+    min-width: 200px;
+    aspect-ratio: 2.5;
+    /* Horizontal slice shape */
+    background-image: url('images/hockey_story.png');
+    background-size: 100% 300%;
+    /* Spans 3 cards vertically */
+    background-repeat: no-repeat;
+    border-radius: var(--radius-md);
+    margin: 10px;
+}
+
+.triptych-part-1 .story-triptych {
+    background-position: center top;
+}
+
+.triptych-part-2 .story-triptych {
+    background-position: center center;
+}
+
+.triptych-part-3 .story-triptych {
+    background-position: center bottom;
+}
+
+.story-description {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    padding-right: 20px;
+}
+
+/* === Social Proof Section === */
+.social-proof-section {
+    margin-bottom: var(--space-xl);
+}
+
+.proof-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(255, 77, 141, 0.1) 0%, rgba(255, 107, 53, 0.08) 50%, rgba(100, 50, 100, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-xl);
+    text-align: center;
+}
+
+.laurel {
+    color: var(--color-gold);
+    opacity: 0.7;
+}
+
+.laurel svg {
+    width: 28px;
+    height: 56px;
+}
+
+.proof-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 240px;
+}
+
+.proof-text strong {
+    color: var(--color-text-primary);
+}
+
+/* === Reviews Section === */
+.reviews-section {
+    margin-bottom: var(--space-xl);
+}
+
+.reviews-carousel {
+    position: relative;
+}
+
+.reviews-track {
+    display: flex;
+    gap: var(--space-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--space-md));
+    padding: 0 var(--space-md) var(--space-md);
+}
+
+.reviews-track::-webkit-scrollbar {
+    display: none;
+}
+
+.review-card {
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: start;
+    padding: var(--space-md);
+    background: transparent;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-sm);
+}
+
+.review-title-area {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.stars {
+    color: var(--color-gold);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.review-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.review-author {
+    display: block;
+}
+
+.review-text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* === Carousel Dots === */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--color-flame);
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* === FAQ Section === */
+.faq-section {
+    margin-bottom: var(--space-xl);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: var(--space-md) 0;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--color-flame);
+}
+
+.faq-icon {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    color: var(--color-flame);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-bottom: var(--space-md);
+}
+
+.faq-answer p {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* === Bottom Spacer === */
+.bottom-spacer {
+    height: 80px;
+}
+
+/* === Fixed Continue Button === */
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    background: linear-gradient(180deg, transparent 0%, var(--color-bg-dark) 40%);
+    z-index: 100;
+}
+
+.continue-btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    background: var(--gradient-flame);
+    border: none;
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+}
+
+.continue-btn:active {
+    transform: translateY(0);
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section,
+.pricing-section,
+.benefits-section,
+.categories-section,
+.stories-section,
+.social-proof-section,
+.reviews-section,
+.plan-section,
+.faq-section {
+    animation: fadeInUp 0.6s ease both;
+}
+
+.hero-section {
+    animation-delay: 0.1s;
+}
+
+.pricing-section {
+    animation-delay: 0.15s;
+}
+
+.benefits-section {
+    animation-delay: 0.2s;
+}
+
+.categories-section {
+    animation-delay: 0.25s;
+}
+
+/* === Responsive === */
+@media (max-width: 360px) {
+    .app-container {
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    .special-deal {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 481px) {
+    .app-container {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .benefit-card {
+        width: 70%;
+    }
+
+    .review-card {
+        width: 80%;
+    }
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === New Pricing Styles (V2) - Index2 === */
+.pricing-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.pricing-card-v2 {
+    background: #2a2a2e;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pricing-card-v2.popular {
+    background: #4a1428;
+    border: 2px solid #d63031;
+    box-shadow: 0 8px 24px rgba(214, 48, 49, 0.25);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -14px;
+    right: 16px;
+    background: #d63031;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.pricing-row.align-center {
+    align-items: center;
+}
+
+.selection-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.pricing-row.align-center .selection-icon {
+    margin-top: 0;
+}
+
+.selection-icon.active {
+    background: #d63031;
+    color: white;
+    box-shadow: 0 0 10px rgba(214, 48, 49, 0.5);
+}
+
+.selection-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.plan-details {
+    flex: 1;
+}
+
+.plan-title-v2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.plan-features-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.plan-features-v2 p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.plan-price-v2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+.pricing-row.align-center .plan-price-v2 {
+    align-self: center;
+    margin-top: 0;
+}
+
+.paywall-headline {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #fff, #ffcfbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 107, 53, 0.2);
+}
