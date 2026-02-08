@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siren's Whisper | Immersive Audio Experience</title>
+    <meta name="description" content="Premium erotic audio stories for the modern imagination.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <div class="global-glow"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="brand-link">
+                <div class="brand-wrapper">
+                    <img src="assets/icons/logo.webp" alt="Siren's Whisper" class="logo">
+                    <span class="brand-name">LucidFM</span>
+                </div>
+            </a>
+            <nav>
+                <!-- <a href="#features" class="nav-link">Features</a> -->
+                <a href="#pricing" class="btn btn-sm btn-primary">Get App</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Centered & Bold) -->
+    <section class="hero hero-centered">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/images/poster.webp">
+            <source src="assets/videos/video-for-landing.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay-dark"></div>
+
+        <div class="hero-bg-text">LUCID</div>
+        <div class="hero-orb orb-top-left"></div>
+        <div class="hero-orb orb-bottom-right"></div>
+
+        <div class="hero-content animate-on-scroll">
+            <div class="container hero-container">
+                <div class="listener-badge animate-on-scroll">
+                    <span class="pulse-dot"></span>
+                    100K+ Listeners Tonight
+                </div>
+
+                <div class="headline-wrapper">
+                    <h1 class="glitch-text animate-on-scroll vfx-flare-reveal">INTIMATE<br>AUDIO</h1>
+                    <p class="sub-headline animate-on-scroll vfx-blur-in stagger-2">STORIES FOR YOU</p>
+                </div>
+
+                <p class="hero-tagline animate-on-scroll vfx-blur-in stagger-3">SENSUAL. IMMERSIVE. PERSONAL.</p>
+
+                <div class="cta-wrapper animate-on-scroll stagger-3">
+                    <a href="#pricing" class="btn btn-primary btn-xl">START FREE TRIAL</a>
+                    <p class="trial-note">7 days free, then $9.99/mo</p>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="graphic-showcase" id="showcase">
+        <div class="showcase-bg-fx">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="floating-ring ring-1"></div>
+        </div>
+        <div class="container relative">
+            <div class="centered-showcase animate-on-scroll">
+                <h2 class="headline-graphic text-center">VISUAL <span class="stroke-text">PLEASURE</span></h2>
+                <p class="subtitle-graphic text-center">The interface of desire. Dark mode optimized.</p>
+
+                <div class="showcase-visual-wrapper">
+                    <div class="glow-backdrop"></div>
+                    <!-- Abstract Music Player Card (Functional & VFX) -->
+                    <div class="player-card animate-on-scroll vfx-scale-in" id="music-player">
+                        <div class="album-art-placeholder">
+                            <div class="vinyl-groove"></div>
+                            <div class="center-label"></div>
+                            <!-- Sonar Rings moved to Disk -->
+                            <div class="play-ring"></div>
+                            <div class="play-ring"></div>
+                            <div class="play-ring"></div>
+                            <div class="play-btn-overlay">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                                    <path class="play-icon" d="M8 5v14l11-7z" />
+                                    <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+                                        style="display: none;" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="track-info">
+                            <h3>Midnight Whispers</h3>
+                            <p>Siren's Audio</p>
+                        </div>
+
+                        <div class="track-specs">
+                            <span>24-bit PCM</span>
+                            <span class="divider"></span>
+                            <span>48.0 kHz</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+
+                        <!-- Real Audio Element -->
+                        <audio id="player-audio" loop>
+                            <source src="assets/audio/audio.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Atmosphere Section (CSS Gradient Only) -->
+    <section class="art-atmosphere">
+        <div class="atmosphere-bg"></div>
+        <div class="container relative z-10">
+            <div class="atmosphere-content animate-on-scroll">
+                <h2>CRAFTED FOR <br><span class="neon-text">SENSATION</span></h2>
+                <p>Every pixel, every sound wave is designed to heighten your senses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof (HTML Cards) -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-grid animate-on-scroll">
+                <div class="review-card animate-on-scroll vfx-blur-in stagger-1">
+                    <div class="stars">★★★★★</div>
+                    <p>"I've never experienced anything like this. The 8D audio is mind-blowing."</p>
+                    <span class="user">- Sarah M.</span>
+                </div>
+                <div class="review-card animate-on-scroll vfx-blur-in stagger-2">
+                    <div class="stars">★★★★★</div>
+                    <p>"Finally an app that understands mood and aesthetics. Worth every penny."</p>
+                    <span class="user">- Alex D.</span>
+                </div>
+                <div class="review-card animate-on-scroll vfx-blur-in stagger-3">
+                    <div class="stars">★★★★★</div>
+                    <p>"The interface is stunning and the stories... pure bliss."</p>
+                    <span class="user">- Jamie L.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Explore Categories & Benefits (Tag Cloud) -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2 class="animate-on-scroll text-center" style="margin-bottom: 3rem;">Explore Your <span>Desires</span>
+            </h2>
+
+            <!-- Row 1: Mood Categories (Infinite Ticker) -->
+            <div class="ticker-wrapper animate-on-scroll">
+                <div class="ticker-track">
+                    <div class="tag-pill category">F4M</div>
+                    <div class="tag-pill category highlight">Romance</div>
+                    <div class="tag-pill category">Roleplay</div>
+                    <div class="tag-pill category highlight">Fantasy</div>
+                    <div class="tag-pill category">Praise</div>
+                    <div class="tag-pill category highlight">🔥 M4F</div>
+                    <div class="tag-pill category">Enemies</div>
+                    <div class="tag-pill category highlight">First Time</div>
+                    <div class="tag-pill category">Comfort</div>
+                    <div class="tag-pill category highlight">Gentle</div>
+                    <!-- Cloned for Infinite Loop -->
+                    <div class="tag-pill category">F4M</div>
+                    <div class="tag-pill category highlight">Romance</div>
+                    <div class="tag-pill category">Roleplay</div>
+                    <div class="tag-pill category highlight">Fantasy</div>
+                    <div class="tag-pill category">Praise</div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Subscription Benefits / Pricing (Restored) -->
+    <section id="pricing" class="subscription">
+        <div class="container subscription-container">
+            <h2 class="animate-on-scroll" style="text-align: center;">Unlock Full Access</h2>
+            <p class="animate-on-scroll"
+                style="color: var(--color-text-muted); text-align: center; margin-bottom: 3rem; max-width: 600px;">Join
+                100K+ listeners tonight.</p>
+
+            <!-- Perfect Pricing UI -->
+            <div class="plan-selector animate-on-scroll">
+                <div class="toggle-container" data-active="monthly" id="planToggle">
+                    <div class="toggle-bg"></div>
+                    <div class="toggle-option active" data-plan="monthly">Monthly</div>
+                    <div class="toggle-option" data-plan="yearly" style="position: relative;">Yearly
+                        <div class="discount-badge">-25%</div>
+                    </div>
+                </div>
+
+                <div id="priceDisplay" class="price-display-container">
+                    <div class="plan-price">$9.99 <span>/ month</span></div>
+                    <p class="plan-details">Billed monthly. Cancel anytime.</p>
+                </div>
+
+                <button class="btn-glow">Start Free 7-Day Trial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA ("Ready to Listen?") -->
+    <section class="footer-cta animate-on-scroll">
+        <div class="container">
+            <h2>Ready to <span>Listen?</span></h2>
+            <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Join 100K+ listeners tonight</p>
+            <button class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.2rem;">Download Free →</button>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">Available on iOS & Android
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Simple -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Midnight Velvet. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">18+ Content. Please ensure you are of legal
+                age to view this material.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
